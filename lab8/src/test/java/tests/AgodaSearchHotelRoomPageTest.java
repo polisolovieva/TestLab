@@ -35,9 +35,7 @@ public class AgodaSearchHotelRoomPageTest
                 .clickButtonToCheckTheHotelNumber()
                 .clickButtonMeaning()
                 .clickFourStarsCheckbox();
-
-        //Thread.sleep(10000);
-        Assert.assertEquals(searchHotelRoomPage.getDepartureString(),DEPARTURE_PLACE);
+        Assert.assertEquals(searchHotelRoomPage.getDepartureString(),"Milan");
     }
 
     @AfterMethod (alwaysRun = true)

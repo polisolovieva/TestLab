@@ -11,15 +11,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class AgodaSearchHotelRoomPage extends AbstractPage {
-    //*[@id="searchPageLeftColumn"]/div[2]/div[2]/div[2]/ul/li[3]/span/span[1]/span
     private static final String SEARCH_HOTEL_ROOM_PAGE_URL = "https://www.agoda.com/ru-ru/";
     private static final String DEPARTURE_CITY = "//*[@id=\"SearchBoxContainer\"]/div[1]/div/div[2]/div/div/div[1]/div/div/input";
     private static final String BUTTON_SEARCH = "//*[@id=\"SearchBoxContainer\"]/div[2]/button";
     private static final String BUTTON_MEANING = "//*[@id=\"city-0\"]/a/div/h3/a";
     private static final String DEPARTURE_STRING = "//*[@id=\"SearchBoxContainer\"]/div/div/div[1]/div/div/div/div[1]";
     private static final String FOUR_STARS_CHECKBOX = "//*[@id=\"searchPageLeftColumn\"]/div[2]/div[3]/div[2]/ul/li[1]/span/span[1]/span";
-
-
 
 
     @FindBy(xpath = "//*[@id=\"SearchBoxContainer\"]/div[1]/div/div[2]/div/div/div[1]/div/div/input")
