@@ -15,7 +15,7 @@ public class AgodaSearchHotelRoomPage extends AbstractPage {
     private static final String SEARCH_HOTEL_ROOM_PAGE_URL = "https://www.agoda.com/ru-ru/";
     private static final String DEPARTURE_CITY = "//input[@class='SearchBoxTextEditor SearchBoxTextEditor--autocomplete']";
     private static final String BUTTON_SEARCH = "//button[@class='Buttonstyled__ButtonStyled-sc-5gjk6l-0 dXQFPN Box-sc-kv6pi1-0 bjEZDw']";
-    private static final String BUTTON_MEANING = "//h3[@class='InterstitialList__title']/a[text() = 'Милан, Италия']";
+    private static final String BUTTON_MEANING = "//h3[@class='InterstitialList__title']/a[text() = 'Milan, Italy']";
     private static final String DEPARTURE_STRING = "//div[@class='SearchBoxTextDescription__title' and @data-selenium='textInput']";
     private static final String DISTANCE_CHECKBOX = "//span[@class='filter-item-info CityCenterDistance-0 ']/span/span[@class='checkbox-icon']";
 
