@@ -11,7 +11,8 @@ import page.AgodaSearchHotelRoomPage;
 
 import java.util.Objects;
 
-public class AgodaSearchHotelRoomPageTest
+public class
+AgodaSearchHotelRoomPageTest
 {
     private ChromeDriver driver;
     private static final String DEPARTURE_PLACE = "Милан";
@@ -19,11 +20,11 @@ public class AgodaSearchHotelRoomPageTest
 
     @BeforeMethod (alwaysRun = true)
     public void browserSetup() {
-        ChromeOptions options = new ChromeOptions();
+        /*ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--window-size=1920,1080",
                 "--disable-extensions", "--proxy-server='direct://'", "--proxy-bypass-list=*", "--start-maximized",
-                "--disable-gpu", "--ignore-certificate-errors");
-        driver = new ChromeDriver(options);
+                "--disable-gpu", "--ignore-certificate-errors");*/
+        driver = new ChromeDriver(/*options*/);
         driver.manage().window().maximize();
     }
 
@@ -34,8 +35,9 @@ public class AgodaSearchHotelRoomPageTest
                 .searchInputDeparture(DEPARTURE_PLACE)
                 .clickButtonToCheckTheHotelNumber()
                 .clickButtonMeaning()
-                .clickFourStarsCheckbox();
-        Assert.assertEquals(searchHotelRoomPage.getDepartureString(),"Milan");
+                .clickDistanceCheckbox();
+
+        Assert.assertEquals(searchHotelRoomPage.getDepartureString(),"Милан");
     }
 
     @AfterMethod (alwaysRun = true)

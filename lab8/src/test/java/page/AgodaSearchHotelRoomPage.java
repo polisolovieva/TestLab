@@ -11,28 +11,31 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class AgodaSearchHotelRoomPage extends AbstractPage {
+
     private static final String SEARCH_HOTEL_ROOM_PAGE_URL = "https://www.agoda.com/ru-ru/";
-    private static final String DEPARTURE_CITY = "//*[@id=\"SearchBoxContainer\"]/div[1]/div/div[2]/div/div/div[1]/div/div/input";
-    private static final String BUTTON_SEARCH = "//*[@id=\"SearchBoxContainer\"]/div[2]/button";
-    private static final String BUTTON_MEANING = "//*[@id=\"city-0\"]/a/div/h3/a";
-    private static final String DEPARTURE_STRING = "//*[@id=\"SearchBoxContainer\"]/div/div/div[1]/div/div/div/div[1]";
-    private static final String FOUR_STARS_CHECKBOX = "//*[@id=\"searchPageLeftColumn\"]/div[2]/div[3]/div[2]/ul/li[1]/span/span[1]/span";
+    private static final String DEPARTURE_CITY = "//input[@class='SearchBoxTextEditor SearchBoxTextEditor--autocomplete']";
+    private static final String BUTTON_SEARCH = "//button[@class='Buttonstyled__ButtonStyled-sc-5gjk6l-0 dXQFPN Box-sc-kv6pi1-0 bjEZDw']";
+    private static final String BUTTON_MEANING = "//h3[@class='InterstitialList__title']/a[text() = 'Милан, Италия']";
+    private static final String DEPARTURE_STRING = "//div[@class='SearchBoxTextDescription__title' and @data-selenium='textInput']";
+    private static final String DISTANCE_CHECKBOX = "//span[@class='filter-item-info CityCenterDistance-0 ']/span/span[@class='checkbox-icon']";
 
 
-    @FindBy(xpath = "//*[@id=\"SearchBoxContainer\"]/div[1]/div/div[2]/div/div/div[1]/div/div/input")
+
+
+    @FindBy(xpath = DEPARTURE_CITY)
     private WebElement searchInputDepartureCity;
 
-    @FindBy(xpath = "//*[@id=\"SearchBoxContainer\"]/div[2]/button")
+    @FindBy(xpath = BUTTON_SEARCH)
     private WebElement searchButton;
 
-    @FindBy(xpath = "//*[@id=\"city-0\"]/a/div/h3/a")
+    @FindBy(xpath = BUTTON_MEANING)
     private WebElement searchMeaningButton;
 
-    @FindBy(xpath = "//*[@id=\"SearchBoxContainer\"]/div/div/div[1]/div/div/div/div[1]")
+    @FindBy(xpath = DEPARTURE_STRING)
     private WebElement searchDepartureString;
 
-    @FindBy(xpath = "//*[@id=\"searchPageLeftColumn\"]/div[2]/div[3]/div[2]/ul/li[1]/span/span[1]/span")
-    private WebElement searchFourStarsCheckbox;
+    @FindBy(xpath = DISTANCE_CHECKBOX)
+    private WebElement searchDistanceCheckbox;
 
     public AgodaSearchHotelRoomPage(WebDriver driver)
     {
@@ -68,8 +71,8 @@ public class AgodaSearchHotelRoomPage extends AbstractPage {
         searchMeaningButton.click();
         return this;
     }
-    public AgodaSearchHotelRoomPage clickFourStarsCheckbox() {
-        searchFourStarsCheckbox.click();
+    public AgodaSearchHotelRoomPage clickDistanceCheckbox() {
+        searchDistanceCheckbox.click();
         return this;
     }
 
