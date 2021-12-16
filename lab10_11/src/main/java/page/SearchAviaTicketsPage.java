@@ -117,7 +117,7 @@ public class SearchAviaTicketsPage extends AbstractPage {
         Thread.sleep(1000);
         buttonSearch.click();
         logger.info("search tickets is complete...");
-        Thread.sleep(3000);
+        Thread.sleep(7000);
         return this;
     }
 
