@@ -121,9 +121,9 @@ public class SearchAviaTicketsPage extends AbstractPage {
         return this;
     }
 
-    public String getDepartureCity() { return finalDepartureCity.getText(); }
-    public String getArrivalCity() { return finalArrivalCity.getText(); }
-    public String getDepartureAndArrivalCity() { return (finalArrivalCity.getText() + ", " + finalArrivalCity.getText()); }
+    public String getDepartureCity() { return finalDepartureCity.getAttribute("content"); }
+    public String getArrivalCity() { return finalArrivalCity.getAttribute("content"); }
+    public String getDepartureAndArrivalCity() { return (finalArrivalCity.getAttribute("content") + ", " + finalArrivalCity.getAttribute("content")); }
 
     @Override
     public SearchAviaTicketsPage openPage() {
