@@ -48,7 +48,7 @@ public class AgodaFlightsMultiCityOnPage extends AbstractPage{
     private WebElement buttonAcross;
 
     public AgodaFlightsMultiCityOnPage clickOnButtonMultiCity() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         buttonMultiCity.click();
         logger.info("click button multi city is complete...");
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
@@ -57,12 +57,12 @@ public class AgodaFlightsMultiCityOnPage extends AbstractPage{
     }
 
     public AgodaFlightsMultiCityOnPage inputFromWhereAndToWhereCity(Order order) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         inputFromWhere.clear();
         inputFromWhere.sendKeys(order.getDepartureCity());
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(TO_WHERE)));
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         inputToWhere.sendKeys(order.getArrivalCity());
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(DEPART)));
@@ -71,17 +71,17 @@ public class AgodaFlightsMultiCityOnPage extends AbstractPage{
     }
 
     public AgodaFlightsMultiCityOnPage inputDepartureDate() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         inputDepart.sendKeys("12/24/2021\n");
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         return this;
     }
 
     public AgodaFlightsMultiCityOnPage clickOnButtonSearch() throws InterruptedException {
         buttonAcross.click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         buttonSearch.click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         return this;
     }
 

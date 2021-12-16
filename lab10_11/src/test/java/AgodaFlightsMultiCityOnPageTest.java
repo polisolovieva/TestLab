@@ -15,4 +15,15 @@ public class AgodaFlightsMultiCityOnPageTest extends CommonConditions {
                 .inputDepartureDate()
                 .clickOnButtonSearch();
     }
+
+    @Test
+    public void testOrderAviaTicketsPageWithEmptyDepartureCity() throws InterruptedException {
+        Order testOrder = OrderCreator.withEmptyDepartureCity();
+        AgodaFlightsMultiCityOnPage departureAndArrivalCity = new AgodaFlightsMultiCityOnPage(driver)
+                .openPage()
+                .clickOnButtonMultiCity()
+                .inputFromWhereAndToWhereCity(testOrder)
+                .inputDepartureDate()
+                .clickOnButtonSearch();
+    }
 }

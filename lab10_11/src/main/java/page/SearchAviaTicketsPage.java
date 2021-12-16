@@ -91,10 +91,10 @@ public class SearchAviaTicketsPage extends AbstractPage {
     public SearchAviaTicketsPage inputDepartureAndArrivalCity(Order order) throws InterruptedException {
         inputDeparture.clear();
         inputDeparture.sendKeys(order.getDepartureCity());
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(ARRIVAL_CITY)));
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         inputArrival.sendKeys(order.getArrivalCity());
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(DEPARTURE_DATE)));
@@ -103,9 +103,9 @@ public class SearchAviaTicketsPage extends AbstractPage {
     }
 
     public SearchAviaTicketsPage inputDepartureAndArrivalDate() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         buttonThere.click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         buttonThere.sendKeys("12/24/2021\n");
         logger.info("input departure and arrival date is complete...");
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
@@ -114,10 +114,10 @@ public class SearchAviaTicketsPage extends AbstractPage {
     }
 
     public SearchAviaTicketsPage clickButtonSearchTickets() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         buttonSearch.click();
         logger.info("search tickets is complete...");
-        Thread.sleep(7000);
+        Thread.sleep(3000);
         return this;
     }
 

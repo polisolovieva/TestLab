@@ -34,13 +34,11 @@ public class AgodaTransferOnPage extends AbstractPage {
     private WebElement buttonSearch;
 
     public AgodaTransferOnPage inputPickUpAndDropOff(Order order) throws InterruptedException {
-        Thread.sleep(5000);
         inputPickUp.sendKeys(order.getDepartureCity());
         Thread.sleep(2000);
         inputPickUp.sendKeys("\n");
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(DROP_OFF)));
-        Thread.sleep(5000);
         inputDropOff.sendKeys(order.getArrivalCity());
         Thread.sleep(2000);
         inputDropOff.sendKeys("\n");
@@ -51,7 +49,6 @@ public class AgodaTransferOnPage extends AbstractPage {
     }
 
     public AgodaTransferOnPage numberOfTravelers() throws InterruptedException {
-        Thread.sleep(5000);
         inputNumberOfTravelers.clear();
         inputNumberOfTravelers.sendKeys("5");
         logger.info("input number of travelers is complete...");
@@ -61,7 +58,6 @@ public class AgodaTransferOnPage extends AbstractPage {
     public AgodaTransferOnPage clickButtonSearch() throws InterruptedException {
         buttonSearch.click();
         logger.info("click button is complete...");
-        Thread.sleep(5000);
         return this;
     }
 
