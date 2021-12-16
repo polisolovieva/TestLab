@@ -1,4 +1,5 @@
 import model.Order;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.SearchAviaTicketsPage;
 import service.OrderCreator;
@@ -15,7 +16,7 @@ public class SearchAviaTicketsPageTest extends CommonConditions {
                 .inputDepartureAndArrivalCity(testOrder)
                 .inputDepartureAndArrivalDate()
                 .clickButtonSearchTickets();
-        //Assert.assertNotEquals((testOrder.getArrivalCity() + ", " + testOrder.getDepartureCity()), departureAndArrivalCity);
+        Assert.assertNotEquals((testOrder.getArrivalCity() + ", " + testOrder.getDepartureCity()), departureAndArrivalCity.getDepartureAndArrivalCity());
     }
 
     @Test
@@ -28,7 +29,7 @@ public class SearchAviaTicketsPageTest extends CommonConditions {
                 .inputDepartureAndArrivalCity(testOrder)
                 .inputDepartureAndArrivalDate()
                 .clickButtonSearchTickets();
-
+        Assert.assertNotEquals(testOrder.getArrivalCity(), arrivalCity.getArrivalCity());
     }
 
     @Test
@@ -41,5 +42,6 @@ public class SearchAviaTicketsPageTest extends CommonConditions {
                 .inputDepartureAndArrivalCity(testOrder)
                 .inputDepartureAndArrivalDate()
                 .clickButtonSearchTickets();
+        Assert.assertNotEquals(testOrder.getDepartureCity(), departureCity.getDepartureCity());
     }
 }

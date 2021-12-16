@@ -61,6 +61,9 @@ public class AgodaTransferOnPage extends AbstractPage {
         return this;
     }
 
+    public String getPickUp() { return inputPickUp.getAttribute("content"); };
+    public String getDropOff() { return inputDropOff.getAttribute("content"); };
+
     public AgodaTransferOnPage(WebDriver driver) {
         super(driver);
     }

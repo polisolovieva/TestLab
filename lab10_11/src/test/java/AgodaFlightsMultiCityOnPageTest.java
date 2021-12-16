@@ -1,4 +1,5 @@
 import model.Order;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.AgodaFlightsMultiCityOnPage;
 import service.OrderCreator;
@@ -14,6 +15,7 @@ public class AgodaFlightsMultiCityOnPageTest extends CommonConditions {
                 .inputFromWhereAndToWhereCity(testOrder)
                 .inputDepartureDate()
                 .clickOnButtonSearch();
+        Assert.assertNotEquals(testOrder.getDepartureCity(), departureAndArrivalCity.getFromWhere());
     }
 
     @Test
@@ -25,5 +27,6 @@ public class AgodaFlightsMultiCityOnPageTest extends CommonConditions {
                 .inputFromWhereAndToWhereCity(testOrder)
                 .inputDepartureDate()
                 .clickOnButtonSearch();
+        Assert.assertNotEquals(testOrder.getArrivalCity(), departureAndArrivalCity.getToWhere());
     }
 }

@@ -1,4 +1,5 @@
 import model.Order;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.AgodaTransferOnPage;
 import service.OrderCreator;
@@ -15,25 +16,29 @@ public class AgodaTransferOnPageTest extends CommonConditions {
                 .inputPickUpAndDropOff(testOrder)
                 .numberOfTravelers()
                 .clickButtonSearch();
+        Assert.assertNotEquals(testOrder.getDepartureCity() + testOrder.getArrivalCity(),
+                                departureAndArrivalCity.getPickUp() + departureAndArrivalCity.getDropOff());
     }
 
     @Test
     public void testOrderAviaTicketsPageWithEmptyDepartureCity() throws InterruptedException {
         Order testOrder = OrderCreator.withEmptyDepartureCity();
-        AgodaTransferOnPage departureAndArrivalCity = new AgodaTransferOnPage(driver)
+        AgodaTransferOnPage arrivalCity = new AgodaTransferOnPage(driver)
                 .openPage()
                 .inputPickUpAndDropOff(testOrder)
                 .numberOfTravelers()
                 .clickButtonSearch();
+        Assert.assertNotEquals(testOrder.getArrivalCity(), arrivalCity.getDropOff());
     }
 
     @Test
     public void testOrderAviaTicketsPageWithEmptyArrivalCity() throws InterruptedException {
         Order testOrder = OrderCreator.withEmptyArrivalCity();
-        AgodaTransferOnPage departureAndArrivalCity = new AgodaTransferOnPage(driver)
+        AgodaTransferOnPage departureCity = new AgodaTransferOnPage(driver)
                 .openPage()
                 .inputPickUpAndDropOff(testOrder)
                 .numberOfTravelers()
                 .clickButtonSearch();
+        Assert.assertNotEquals(testOrder.getDepartureCity(), departureCity.getPickUp());
     }
 }

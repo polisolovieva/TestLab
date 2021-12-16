@@ -85,6 +85,9 @@ public class AgodaFlightsMultiCityOnPage extends AbstractPage{
         return this;
     }
 
+    public String getFromWhere() { return inputFromWhere.getAttribute("content"); };
+    public String getToWhere() { return inputToWhere.getAttribute("content"); };
+
     public AgodaFlightsMultiCityOnPage(WebDriver driver) {
         super(driver);
     }
