@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-
-<suite name="order" verbose="1" >
-    <test name="AgodaSearchHotelRoomPage"   >
-        <classes>
-            <class name="AgodaSearchHotelRoomPageTest" />
-        </classes>
-    </test>
-</suite>
