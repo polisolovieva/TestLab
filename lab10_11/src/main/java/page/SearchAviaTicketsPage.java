@@ -36,6 +36,16 @@ public class SearchAviaTicketsPage extends AbstractPage {
 
     private static final String FINAL_ARRIVAL_CITY = "//input[@aria-label='Flight destination input']";
 
+    private static final String CLOSE_BANNER = "//button[@class='Button-Grey-Invert errorDialogCloseButton']";//"//button[@aria-label='Close']";
+
+    private static final String ERROR_BANNER = "//div[@class='body']/div[@class='errorContent']";
+
+    @FindBy(xpath = ERROR_BANNER)
+    private WebElement errorBanner;
+
+    @FindBy(xpath = CLOSE_BANNER)
+    private WebElement buttonCloseBanner;
+
     @FindBy(xpath = BANNER)
     private WebElement searchBanner;
 
@@ -91,10 +101,10 @@ public class SearchAviaTicketsPage extends AbstractPage {
     public SearchAviaTicketsPage inputDepartureAndArrivalCity(Order order) throws InterruptedException {
         inputDeparture.clear();
         inputDeparture.sendKeys(order.getDepartureCity());
-        Thread.sleep(1000);
+        Thread.sleep(4000);
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(ARRIVAL_CITY)));
-        Thread.sleep(1000);
+        Thread.sleep(4000);
         inputArrival.sendKeys(order.getArrivalCity());
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(DEPARTURE_DATE)));
@@ -103,9 +113,9 @@ public class SearchAviaTicketsPage extends AbstractPage {
     }
 
     public SearchAviaTicketsPage inputDepartureAndArrivalDate() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(4000);
         buttonThere.click();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         buttonThere.sendKeys("12/24/2021\n");
         logger.info("input departure and arrival date is complete...");
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
@@ -114,16 +124,25 @@ public class SearchAviaTicketsPage extends AbstractPage {
     }
 
     public SearchAviaTicketsPage clickButtonSearchTickets() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(4000);
         buttonSearch.click();
+        Thread.sleep(4000);
         logger.info("search tickets is complete...");
-        Thread.sleep(3000);
         return this;
     }
 
-    public String getDepartureCity() { return finalDepartureCity.getText(); }
-    public String getArrivalCity() { return finalArrivalCity.getText(); }
-    public String getDepartureAndArrivalCity() { return (finalArrivalCity.getText() + ", " + finalArrivalCity.getText()); }
+    public SearchAviaTicketsPage closeErrorBanner() throws InterruptedException {
+        Thread.sleep(4000);
+        if(errorBanner != null)
+            if(buttonCloseBanner != null)
+                buttonCloseBanner.click();
+        Thread.sleep(4000);
+        return this;
+    }
+
+    public String getDepartureCity() { return inputDeparture.getAttribute("content"); }
+    public String getArrivalCity() { return inputArrival.getAttribute("content"); }
+    public String getDepartureAndArrivalCity() { return (finalDepartureCity.getAttribute("content") + ", " + finalArrivalCity.getAttribute("content")); }
 
     @Override
     public SearchAviaTicketsPage openPage() {

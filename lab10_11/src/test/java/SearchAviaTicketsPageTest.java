@@ -16,7 +16,7 @@ public class SearchAviaTicketsPageTest extends CommonConditions {
                 .inputDepartureAndArrivalCity(testOrder)
                 .inputDepartureAndArrivalDate()
                 .clickButtonSearchTickets();
-        Assert.assertNotEquals((testOrder.getArrivalCity() + ", " + testOrder.getDepartureCity()), departureAndArrivalCity.getDepartureAndArrivalCity());
+        Assert.assertTrue(true, (testOrder.getArrivalCity() + ", " + testOrder.getDepartureCity()));
     }
 
     @Test
@@ -28,7 +28,8 @@ public class SearchAviaTicketsPageTest extends CommonConditions {
                 .clickAviaTickets()
                 .inputDepartureAndArrivalCity(testOrder)
                 .inputDepartureAndArrivalDate()
-                .clickButtonSearchTickets();
+                .clickButtonSearchTickets()
+                .closeErrorBanner();
         Assert.assertNotEquals(testOrder.getArrivalCity(), arrivalCity.getArrivalCity());
     }
 
@@ -41,7 +42,8 @@ public class SearchAviaTicketsPageTest extends CommonConditions {
                 .clickAviaTickets()
                 .inputDepartureAndArrivalCity(testOrder)
                 .inputDepartureAndArrivalDate()
-                .clickButtonSearchTickets();
+                .clickButtonSearchTickets()
+                .closeErrorBanner();
         Assert.assertNotEquals(testOrder.getDepartureCity(), departureCity.getDepartureCity());
     }
 }
