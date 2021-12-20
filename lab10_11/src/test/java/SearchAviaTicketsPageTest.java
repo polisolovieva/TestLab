@@ -28,8 +28,7 @@ public class SearchAviaTicketsPageTest extends CommonConditions {
                 .clickAviaTickets()
                 .inputDepartureAndArrivalCity(testOrder)
                 .inputDepartureAndArrivalDate()
-                .clickButtonSearchTickets()
-                .closeErrorBanner();
+                .clickButtonSearchTickets();
         Assert.assertNotEquals(testOrder.getArrivalCity(), arrivalCity.getArrivalCity());
     }
 
