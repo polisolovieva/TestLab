@@ -24,6 +24,7 @@ public class DriverSingleton {
                     "--disable-gpu", "--ignore-certificate-errors");
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(options);
+            driver.manage().window().maximize();
         }
         return driver;
     }
